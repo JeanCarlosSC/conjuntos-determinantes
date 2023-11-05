@@ -1,4 +1,4 @@
-public class CD5 {
+public class CDM4 {
     int[][] mAdyacencia = new int[][]{
         {0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0},
         {0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0},
@@ -17,20 +17,18 @@ public class CD5 {
     };
 
     public static void main(String[] args) {
-        new CD5();
+        new CDM4();
     }
 
-    public CD5() {
-        int c = 122;
-        for (int i = 1; i < 15; i++) {
-            for (int j = 1; j < 15; j++) {
-                for (int j2 = 1; j2 < 15; j2++) {
-                    for (int k = 1; k < 15; k++) {
-                        for (int k2 = 1; k2 < 15; k2++) {
-                            if(!equals(i, j, j2, k, k2) && isOrdered(i, j, j2, k, k2) && isDominant(i, j, j2, k, k2)) {
-                                System.out.println("Conjunto dominante "+c+" = {"+i+","+j+","+j2+","+k+","+k2+"}");
-                                c++;
-                            }
+    public CDM4() {
+        int counter = 1;
+        for (int a = 1; a < 12; a++) {
+            for (int b = 1; b < 13; b++) {
+                for (int c = 1; c < 14; c++) {
+                    for (int d = 1; d < 15; d++) {
+                        if(!equals(a, b, c, d) && isOrdered(a, b, c, d) && isDominant(a, b, c, d)) {
+                            System.out.println("Conjunto dominante mínimo "+counter+" = {"+a+","+b+","+c+","+d+"}");
+                            counter++;
                         }
                     }
                 }
@@ -49,27 +47,12 @@ public class CD5 {
                     return false;
                 }
             }
-        }
-        return true;
-    }
-
-    private boolean isDominant(int a, int b, int c, int d, int e) {
-        for (int i = 1; i < 15; i++) {
-            if(i!=a && i!=b && i!=c && i!=d && i!=e) {
-                if(!esAdyacente(i, a) && !esAdyacente(i, b) && !esAdyacente(i, c) && !esAdyacente(i, d) && !esAdyacente(i, e)) {
-                    return false;
-                }
-            }
-        }
+        }   
         return true;
     }
 
     private boolean isOrdered(int a, int b, int c, int d) {
         return a<b && b<c && c<d;
-    }
-
-    private boolean isOrdered(int a, int b, int c, int d, int e) {
-        return isOrdered(a, b, c, d) && d<e;
     }
 
     private boolean equals(int a, int b) {
@@ -82,9 +65,5 @@ public class CD5 {
 
     private boolean equals(int a, int b, int c, int d) {
         return equals(a, b, c) || equals(a, b, d) || equals(b, c, d);
-    }
-
-    private boolean equals(int a, int b, int c, int d, int e) {
-        return equals(a, b, c, d) || equals(a, b, c, e) || equals(b, c, d, e);
     }
 }
