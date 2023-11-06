@@ -1,4 +1,4 @@
-public class Main {
+public class CD4 {
     int[][] mAdyacencia = new int[][]{
         {0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0},
         {0,	0,	1,	1,	1,	1,	1,	0,	0,	0,	0,	0,	0,	0},
@@ -16,11 +16,11 @@ public class Main {
         {0,	0,	0,	0,	0,	0,	0,	1,	1,	1,	1,	1,	0,	0}
     };
 
-    public static void main(String[] args) {
-        new Main();
+    public static void mains(String[] args) {
+        new CD4();
     }
 
-    public Main() {
+    public CD4() {
         int counter = 4229;
         for (int a = 1; a < 15; a++) {
             for (int b = 1; b < 15; b++) {
